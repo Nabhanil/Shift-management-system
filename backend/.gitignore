@@ -1,0 +1,5 @@
+.env
+venv
+hash_pa.py
+__pycache__
+uploads
