@@ -60,7 +60,6 @@ def create_shift_assignment(shift_assignment: ShiftAssignmentCreate, session: Se
     employee = session.get(Employee, shift_assignment.employee_id)
     if not employee:
          raise HTTPException(status_code=404, detail=f"Employee with ID {shift_assignment.employee_id} not found")
-    # <<< MODIFIED: Check against SHIFT_NAMES keys for validation >>>
     if shift_assignment.shift not in SHIFT_NAMES.keys():
          raise HTTPException(status_code=400, detail=f"Invalid shift code: {shift_assignment.shift}. Valid codes: {list(SHIFT_NAMES.keys())}")
 
